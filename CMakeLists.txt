@@ -1,13 +1,15 @@
 cmake_minimum_required(VERSION 3.1)
 project(test_vcpkg)
 
-find_package(Protobuf REQUIRED)
+# Find prerequisites
 
-if (NOT ${PROTOBUF_FOUND})
-  message(FATAL_ERROR "Google protobuf not found")
-endif()
+# find_package(Protobuf REQUIRED)
 
-# add_executable(test_vcpkg main.cpp)
+# if (NOT ${PROTOBUF_FOUND})
+#   message(FATAL_ERROR "Google protobuf not found")
+# endif()
 
-message(STATUS "Testing CMake build with vcpkg")
+add_executable(test_vcpkg main.cpp)
+
+message(STATUS "**** Testing CMake build with vcpkg")
 
