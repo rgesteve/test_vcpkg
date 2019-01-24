@@ -3,13 +3,14 @@ project(test_vcpkg)
 
 # Find prerequisites
 
-# find_package(Protobuf REQUIRED)
-
-# if (NOT ${PROTOBUF_FOUND})
-#   message(FATAL_ERROR "Google protobuf not found")
+# find_package(fmt CONFIG)
+# if (NOT ${fmt_FOUND})
+#   message(FATAL_ERROR "Cannot find required `fmt` library")
 # endif()
 
-add_executable(test_vcpkg main.cpp)
+find_package(fmt CONFIG REQUIRED)
 
-message(STATUS "**** Testing CMake build with vcpkg")
+add_executable(test_vcpkg main.cpp)
+target_link_libraries(test_vcpkg PRIVATE fmt::fmt fmt::fmt-header-only)
+
 
